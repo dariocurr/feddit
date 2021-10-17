@@ -1,6 +1,6 @@
 # Feddit, ugly by choice
 
-Fake Reddit Java application realized using Spring, Thymeleaf and Hibernate or H2
+Fake Reddit Java application realized using Spring, Thymeleaf and Hibernate
 
 ## Team
 
