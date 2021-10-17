@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>SignUp - Feddit</title>
+        <link th:href="@{/css/main.css}" rel="styLesheet" />
+    </head>
+    <body class="page_centered_div">
+        <div class="container">
+            <img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+            <p>Dear <b th:text="${name}"></b>, your account have been created successfully.</p>
+            <a href="/login" class="button">log in</a>
+        </div>
+    </body>
+</html>

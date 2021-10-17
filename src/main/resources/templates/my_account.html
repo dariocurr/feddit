@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Account - Feddit</title>
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+        <script type="text/javascript" th:src="@{/js/functions.js}"></script>
+    </head>
+    <body>
+        <div class="header">
+            <form th:action="@{/logout}" method="post">
+                <p>
+                    Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+                </p>
+                <input type="submit" value="Sign Out" />
+                <p th:classappend="${passwordResult.getType()}" th:text="${passwordResult.getMessage()}" id="errorPassword"></p>
+            </form>
+            <div class="left_sub_header">
+                <button type="button" th:onclick="${'javascript:showChangePasswordForm()'}">Change password</button>
+                <a href="/" class="button">Go back</a>
+            </div>
+        </div>
+        <div id="changePasswordForm" class="container hidden">
+            <form th:action="@{/process_change_password}" class="form" method="post" onsubmit="return checkPassword();" >
+                <div class="row">
+                    <label for="old_password">Old password</label>
+                    <input type="password" id="old_password" name="old_password" autofocus="autofocus" />
+                </div>
+
+                <div class="row">
+                    <label for="password">New Password</label>
+                    <input type="password" id="password" name="password" onkeyup="checkPassword();" required/>
+                </div>
+
+                <div class="row">
+                    <label for="confirm_password">Repeat new Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" onkeyup="checkPassword();" required />
+                </div>
+
+                <div class="row item-right">
+                    <input type="submit" value="Change Password" onclick='checkErrorPassword();'/>
+                </div>
+            </form>
+        </div>
+        <div class="main">
+            <div class="myposts">
+            <h2>My posts</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Upvotes</th>
+                        <th>Downvotes</th>
+                        <th>Creation Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="post: ${posts}">
+                            <td th:text="${#strings.abbreviate(post.title,15)}"></td>
+                            <td th:text="${#strings.abbreviate(post.content, 15)}"></td>
+                            <td th:text="${post.upVotes}"></td>
+                            <td th:text="${post.downVotes}"></td>
+                            <td th:text="${post.creationDate}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mycomments">
+                <h2>My comments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Content</th>
+                            <th>Upvotes</th>
+                            <th>Downvotes</th>
+                            <th>Creation Date</th>
+                            <th>Parent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="comment: ${comments}">
+                            <td th:text="${comment.content}"></td>
+                            <td th:text="${comment.upVotes}"></td>
+                            <td th:text="${comment.downVotes}"></td>
+                            <td th:text="${comment.creationDate}"></td>
+                            <td th:text="${comment.post == null ?
+                                            #strings.abbreviate(comment.comment?.content, 15) :
+                                            #strings.abbreviate(comment.post?.content, 15)}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="myinfo">
+                <h2>My account</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>E-mail</th>
+                        <th>Birth Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <td th:text="${first_name}">First Name</td>
+                        <td th:text="${last_name}">Last Name</td>
+                        <td th:text="${email}">E-mail</td>
+                        <td th:text="${birth_date}">Birth Date</td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Feddit</title>
+        <link th:href="@{/css/98.css}" rel="styLesheet" />
+    </head>
+    <body>
+        <div class="window active">
+            <div class="window-toolbar">
+                <div>FEDDIT32.EXE - Application Error</div>
+            </div>
+            <div class="window-wrapper">
+                <div class="window-content">
+                    <img src="../static/images/icons/error-logo.png" th:src="@{images/icons/error-logo.png}"/>
+                    <p>Fatal Error: something went wrong.</p>
+                </div>
+                <div class="window-actions">
+                    <a href="/" class="window-action-button">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>SignUp - Feddit</title>
+        <link th:href="@{/css/main.css}" rel="styLesheet" />
+        <script type="text/javascript" th:src="@{/js/functions.js}"></script>
+    </head>
+    <body class="page_centered_div">
+        <div class="container">
+            <img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+            <h3>F(ake R)eddit, ugly by choice</h3>
+
+            <p th:classappend="${signupResult.getType()}" th:text="${signupResult.getMessage()}" id="errorPassword"></p>
+
+            <form class="form" th:action="@{/process_signup}" th:object="${user}" method="post" onsubmit="return checkPassword();">
+                <div class="row">
+                    <label for="first_name">Name</label>
+                    <input type="text" th:field="*{firstName}" id="first_name" name="first_name" autofocus="autofocus" required/>
+                </div>
+
+                <div class="row">
+                    <label for="last_name">Surname</label>
+                    <input type="text" th:field="*{lastName}" id="last_name" name="last_name" autofocus="autofocus" required/>
+                </div>
+
+                <div class="row">
+                    <label for="email">Email</label>
+                    <input type="email" th:field="*{email}" id="email" name="email" autofocus="autofocus" required />
+                </div>
+
+                <div class="row">
+                    <label for="username">Username</label>
+                    <input type="text" th:field="*{username}" id="username" name="username" autofocus="autofocus" required />
+                </div>
+
+                <div class="row">
+                    <label for="birth_date">Birth</label>
+                    <input type="date" max="2007-12-31" min="1921-01-01" th:field="*{birthDate}" id="birth_date" name="birth_date" autofocus="autofocus" required />
+                </div>
+
+                <div class="row">
+                    <label for="password">Password</label>
+                    <input type="password" th:field="*{password}" id="password" name="password" onkeyup="checkPassword();" required/>
+                </div>
+
+                <div class="row">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password"  id="confirm_password" name="confirm_password" onkeyup="checkPassword();" required  />
+
+                </div>
+
+                <div class="row">
+                    <a class="button" href="/">Go back</a>
+                    <input type="submit" value="Sign up" onclick='checkErrorPassword();'/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

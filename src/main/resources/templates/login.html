@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Login - Feddit</title>
+        <link th:href="@{/css/main.css}" rel="styLesheet" />
+    </head>
+    <body class="page_centered_div">
+        <div class="container">
+            <img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+            <h3>F(ake R)eddit, ugly by choice</h3>
+            <p th:if="${loginError}" class="error">Wrong username or password</p>
+            <form class="form" th:action="@{/login}" method="post">
+                <div class="row">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" autofocus="autofocus" required/>
+                </div>
+
+                <div class="row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required/>
+                </div>
+                
+                <div class="row">
+                    <a href="/" class="button" >Enter as guest</a>
+                    <input type="submit" value="Log in" />
+                </div>
+            </form>
+            <div>
+                <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            </div>
+        </div>
+    </body>
+</html>

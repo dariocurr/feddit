@@ -1,0 +1,365 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.header img {
+    margin: 10px;
+    width: 100px;
+}
+
+.header p {
+    margin: 0.5rem;
+}
+
+.left_sub_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    color: inherit;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    text-decoration: none;
+}
+
+button {
+    background: white;
+    color: inherit;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    outline:none;
+}
+
+button:hover, .button:hover {
+    text-shadow:0px 0px 1px black;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+
+
+.main {
+    padding: 1rem;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.grid_right {
+    grid-column: 2/3;
+    margin: 0.5rem;
+}
+
+.grid_right p {
+    margin: auto;
+    max-width: 500px;C
+}
+
+.grid_left {
+    grid-column: 1/2;
+    grid-row: 1;
+    margin: 0.5rem;
+}
+
+table {
+    margin: 0.5rem;
+}
+
+.page_centered_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px black solid;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.item-right {
+    justify-content: center;
+}
+
+label {
+    margin-right: 5px;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=date] {
+    border: 1px solid black;
+}
+
+input[type=submit] {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.add_post {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.add_post input {
+    outline: none;
+}
+
+.add_post textarea {
+    grid-column: 1/3;
+    min-height: 100px;
+    margin-top: 0.5rem;
+    border: 1px black solid;
+    outline: none;
+    resize: none;
+}
+
+.post {
+    border: 1px black solid;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 5% 95%;
+    min-height: 10rem;
+    margin-bottom: 1rem;
+}
+
+.post-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-sidebar button {
+    margin: 0;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.post-sidebar p {
+    margin: 5px;
+}
+
+.post-content {
+    border: 1px black dotted;
+    margin-left: 0.5rem;
+}
+
+.post-content p{
+    margin: 0;
+}
+
+.post-header {
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.post-header .user {
+    margin: 0.5rem;
+    font-weight: bold;
+}
+
+.post-header .date {
+    font-size: small;
+    font-weight: normal;
+}
+
+.post-header .remove-post {
+    margin-left: auto;
+}
+
+.post-header .remove-post input[type="submit"] {
+    border: none;
+    background-color: red;
+    color: white;
+}
+
+.post-title {
+    font-size: x-large;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    word-break: break-all;
+}
+
+.post-title p {
+    margin: 0;
+}
+
+.post-text {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-top: 0.5rem;
+    word-break: break-all;
+}
+
+.post-text p {
+    margin: 0;
+}
+
+.post-footer {
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 0.5rem;
+}
+
+.post-footer p {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.full_post {
+    display: grid;
+    grid-template-columns: 5% 95%;
+    min-width: 1000px;
+    max-width: fit-content;
+    border: 1px black solid;
+    padding: 0.5rem;
+}
+
+.full_post .post-text {
+    max-width: 1000px;
+}
+
+.full_post .post-header {
+    max-width: 1000px;
+}
+
+.full_post .post-title {
+    max-width: 1000px;
+}
+
+.likeClicked{
+    color: blue;
+}
+
+.dislikeClicked{
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+li {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px black solid;
+}
+
+details {
+
+}
+
+details > summary {
+    color: gray;
+    outline: none;
+    cursor: pointer;
+}
+
+.comment_container {
+    grid-column: 1/3;
+    min-width: 1000px;
+}
+
+.border {
+    border: 1px black solid;
+}
+
+
+.comment_container .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .side {
+    display: flex;
+}
+
+.side button {
+    border: none;
+    cursor: pointer;
+}
+
+.content p {
+    width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.comment_container .add_comment {
+    display: flex;
+    align-items: center;
+}
+
+.add_comment input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.myposts {
+    grid-row: 1;
+    margin: 0.5rem;
+}
+
+.mycomments {
+    grid-row: 2;
+    margin: 0.5rem;
+}
+
+.myinfo {
+    grid-column: 2/3;
+    margin: 0.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+th, td {
+    padding: 3px;
+    border: 1px solid grey;
+}
+
+.no-text-decoration {
+    text-decoration: none;
+    color: inherit;
+}

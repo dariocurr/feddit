@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+
+<section layout:fragment="comment_section" class="comment_section">
+    <ul th:if="${not object.comments.isEmpty()}">
+        <details th:class="${object.getClazz().toLowerCase()} + '_summary'">
+            <summary>Show comments</summary>
+            <li th:each="c : ${object.comments}" class="comment_container border">
+                <div class="content">
+                    <div class="side">
+                        <p th:utext="'<strong>' + ${c.user.username} + '</strong>'"></p>
+                        <form action="#" sec:authorize="isAuthenticated()" th:action="@{'/vote/{id}'(id=${c.id})}" th:method="post" >
+                            <button type="submit" name="vote_type" th:value="UP_VOTE"
+                                    th:classappend="${c.hasVoteByUser(#request.userPrincipal.principal.id, 'UP_VOTE')} ? likeClicked : nothing">
+                                <i class="far fa-thumbs-up"></i>
+                            </button>
+                            <input type="hidden" name="post" th:value="${post.id}"/>
+                            <input type="hidden" name="parent_type" th:value="${c.getClazz()}"/>
+                            <input type="hidden" name="page" th:value="post"/>
+                        </form>
+
+                        <p th:with="result=${c.upVotes - c.downVotes}" th:text="${result}"></p>
+
+                        <form action="#" sec:authorize="isAuthenticated()" th:action="@{'/vote/{id}'(id=${c.id})}" th:method="post" >
+                            <button type="submit" name="vote_type" th:value="DOWN_VOTE"
+                                    th:classappend="${c.hasVoteByUser(#request.userPrincipal.principal.id, 'DOWN_VOTE')} ? dislikeClicked : nothing" >
+                                <i class="far fa-thumbs-down"></i>
+                            </button>
+                            <input type="hidden" name="post" th:value="${post.id}"/>
+                            <input type="hidden" name="parent_type" th:value="${c.getClazz()}"/>
+                            <input type="hidden" name="page" th:value="post"/>
+                        </form>
+                    </div>
+
+                    <p th:text="${c.content}"></p>
+
+                    <form method="post"
+                          th:if="${#authorization.expression('hasAuthority(''ADMIN'')') or
+                          (#authorization.expression('isAuthenticated()') and c.user.id == #request.userPrincipal.principal.id) }"
+                          th:action="@{/delete_comment}">
+                        <input type="hidden" name="id" th:value="${c.id}" />
+                        <input type="hidden" name="post" th:value="${post.id}"/>
+
+                        <input type="submit" value="X" />
+                    </form>
+                </div>
+
+                <section layout:include="@{/post_fragment.html} :: comment_section" th:with="object=${c}"></section>
+
+                <form class="add_comment" method="post" th:action="@{/add_comment}" sec:authorize="isAuthenticated()">
+                    <input type="text" placeholder="Insert your comment here" required
+                           name="content" th:value="${content}"/>
+                    <input type="hidden" name="parent_type" th:value="${c.getClazz()}"/>
+                    <input type="hidden" name="parent_id" th:value="${c.id}"/>
+                    <input type="hidden" name="post" th:value="${post.id}"/>
+                    <input type="submit" value="Add comment" />
+                </form>
+            </li>
+        </details>
+    </ul>
+</section>
+</html>
