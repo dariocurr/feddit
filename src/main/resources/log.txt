@@ -1,0 +1,2 @@
+Thu Oct 21 20:30:23 UTC 2021	User with username 'dario' is trying to login
+Thu Oct 21 20:30:23 UTC 2021	User with username 'dario' is logged in

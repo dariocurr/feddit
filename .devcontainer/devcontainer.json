@@ -1,0 +1,24 @@
+{
+	"name": "Java",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Use the -bullseye variants on local arm64/Apple Silicon.
+			"JAVA_VERSION": "11",
+			"INSTALL_MAVEN": "true",
+			"MAVEN_VERSION": "3.6.3",
+		}
+	},
+	"settings": {
+		"java.home": "/docker-java-home",
+		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
+	},
+	"extensions": [
+		"vscjava.vscode-java-pack",
+		"redhat.fabric8-analytics"
+	],
+	"forwardPorts": [
+		8080
+	],
+	"remoteUser": "vscode"
+}

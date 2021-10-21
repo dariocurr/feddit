@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * this class allows Feddit to start
  *
- * @author Groupe A
- *
- * */
+ */
 @SpringBootApplication
 public class Application {
 
