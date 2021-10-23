@@ -11,3 +11,9 @@ Fake Reddit Java application realized using Spring, Thymeleaf and Hibernate
 | Domingo    | Emanuele     |
 | Gristina   | Salvatore A. |
 | Vanspauwen | Arnaud       |
+
+## How to run
+
+In order to run and develop the app locally, build the `dev container` using the
+[Docker](https://www.docker.com/) extension of
+[VScode](https://code.visualstudio.com/).
