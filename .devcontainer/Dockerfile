@@ -5,9 +5,13 @@ USER root
 
 ARG INSTALL_MAVEN
 ARG MAVEN_VERSION
-RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install maven \"${MAVEN_VERSION}\""; fi
+ARG USER
+RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su ${USER} -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install maven \"${MAVEN_VERSION}\""; fi
+
+RUN apt update
+RUN apt upgrade -y
 
 RUN git config --global user.email "dariocurr@gmail.com",
 RUN git config --global user.name "Dario Curreri",
 
-USER vscode
+USER ${USER}
