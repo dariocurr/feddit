@@ -7,6 +7,7 @@
 			"JAVA_VERSION": "11",
 			"INSTALL_MAVEN": "true",
 			"MAVEN_VERSION": "3.6.3",
+			"USER": "vscode",
 		}
 	},
 	"settings": {
