@@ -1,6 +1,6 @@
 # Feddit, ugly by choice
 
-Fake Reddit Java application realized using Spring, Thymeleaf and Hibernate
+Fake Reddit Java application realized using [Spring](https://spring.io/), [Thymeleaf](https://www.thymeleaf.org/) and [Hibernate](https://hibernate.org/)
 
 <img width="700" alt="Feddit home" src="/img/home.png">
 
