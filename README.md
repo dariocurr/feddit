@@ -2,6 +2,8 @@
 
 Fake Reddit Java application realized using Spring, Thymeleaf and Hibernate
 
+<img width="700" alt="Feddit home" src="/img/home.png">
+
 For a better understanding please take a look at the
 [slides](/doc/presentation.pdf) and at the [ER schema](/img/ER_schema.png)
 
