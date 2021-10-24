@@ -3,7 +3,7 @@
 Fake Reddit Java application realized using Spring, Thymeleaf and Hibernate
 
 For a better understanding please take a look at the
-[presentation](/doc/presentation.pdf) and at the [ER schema](/img/ER_schema.png)
+[slides](/doc/presentation.pdf) and at the [ER schema](/img/ER_schema.png)
 
 ## Team
 
