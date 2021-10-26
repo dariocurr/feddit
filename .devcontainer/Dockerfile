@@ -11,7 +11,4 @@ RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su ${USER} -c "umask 0002 && . /usr
 RUN apt update
 RUN apt upgrade -y
 
-RUN git config --global user.email "dariocurr@gmail.com",
-RUN git config --global user.name "Dario Curreri",
-
 USER ${USER}
